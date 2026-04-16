@@ -97,9 +97,10 @@ def clone_voice():
         if os.path.exists(input_path):
             os.remove(input_path)
 
+@app.route('/health', methods=['GET'])
 @app.route('/api/health', methods=['GET'])
 def health():
-    return jsonify({'status': 'ok'})
+    return jsonify({'status': 'ok', 'service': 'voice-cloning-backend'})
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=False)
